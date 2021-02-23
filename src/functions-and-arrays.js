@@ -1,18 +1,134 @@
 // Iteration #1: Find the maximum
 
+function maxOfTwoNumbers(num1, num2) {
+  let maxNumber = 0;
+
+  if (num1 >= num2) {
+    maxNumber = num1;
+  } else {
+    maxNumber = num2;
+  }
+
+  return maxNumber;
+}
+
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+
+function findLongestWord(arrOfWords) {
+
+  if (arrOfWords.length === 0) return null
+
+  let longestWord = "";
+
+  for (let i = 0; i < arrOfWords.length; i++) {
+    if (arrOfWords[i].length > longestWord.length) {
+      longestWord = arrOfWords[i];
+    }
+  }
+
+  return longestWord
+}
 
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+function sumNumbers(arrOfNumbers) {
+  let sum = 0;
+
+  for (let i = 0; i < arrOfNumbers.length;  i++) {
+    sum = sum + arrOfNumbers[i];
+  }
+
+  return sum
+}
+
+// Bonus - Iteration #3.1: A generic sum() function
+
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(arrOfMixedType) {
+
+  let sumNumbers = 0;
+  let sumStrings = 0;
+  let sumBooleans = 0;
+
+ for (let i = 0; i < arrOfMixedType.length;  i++){
+   if (typeof arrOfMixedType[i] === "number") {
+     sumNumbers = sumNumbers + arrOfMixedType[i];
+   }
+
+   if (typeof arrOfMixedType[i] === "string") {
+     sumStrings = sumStrings + arrOfMixedType[i].length;
+   }
+
+   if (arrOfMixedType[i] === true) {
+     sumBooleans = sumBooleans + 1;
+   }
+ } 
+
+ return sumNumbers + sumStrings + sumBooleans
+}
+
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(arrOfNumbers) {
+
+  if (arrOfNumbers.length === 0) return null
+
+  let average = 0;
+  for (let i = 0; i < arrOfNumbers.length;  i++) {
+    average = (average + arrOfNumbers[i]);
+  }
+  return average / arrOfNumbers.length
+}
+
+
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(arrOfWords) {
+
+  if (arrOfWords.length === 0) return null
+
+  let sumOfLength = 0;
+  for (let i = 0; i < arrOfWords.length;  i++) {
+    sumOfLength = sumOfLength + arrOfWords[i].length;
+  }
+  return sumOfLength / arrOfWords.length
+}
+
+// Bonus - Iteration #4.1: A generic avg() function
+
+function avg(arrOfMixedType) {
+
+  if (arrOfMixedType.length === 0) return null
+
+  let sumNumbers = 0;
+  let sumStrings = 0;
+  let sumBooleans = 0;
+
+ for (let i = 0; i < arrOfMixedType.length;  i++){
+   if (typeof arrOfMixedType[i] === "number") {
+     sumNumbers = sumNumbers + arrOfMixedType[i];
+   }
+
+   if (typeof arrOfMixedType[i] === "string") {
+     sumStrings = sumStrings + arrOfMixedType[i].length;
+   }
+
+   if (arrOfMixedType[i] === true) {
+     sumBooleans = sumBooleans + 1;
+   }
+ } 
+
+ return (sumNumbers + sumStrings + sumBooleans) / arrOfMixedType.length
+}
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +145,37 @@ const wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray (arrOfWords) {
+
+  if (arrOfWords.length === 0) return null
+
+  let uniqueArr = [];
+
+  for (let i = 0; i < arrOfWords.length;  i++){
+    if (arrOfWords.indexOf(arrOfWords[i], i + 1) === -1) {
+      uniqueArr.push(arrOfWords[i]);
+    }
+  }
+  return uniqueArr
+}
+
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function doesWordExist (arrOfWords, word) {
+
+  if (arrOfWords.length === 0) return null
+
+  let isFound = false;
+
+  for (let i = 0; i < arrOfWords.length;  i++){
+    if(word === arrOfWords[i]){
+      isFound = true;
+    } 
+  }
+  return isFound
+}
+
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -46,6 +191,20 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (arrOfWords, word) {
+  
+  let count = 0;
+  
+  for (let i = 0; i < arrOfWords.length;  i++){
+    
+    if(word === arrOfWords[i]){
+      count = count + 1;
+    }
+  }
+  return count
+}
+
 
 // Iteration #8: Bonus
 
